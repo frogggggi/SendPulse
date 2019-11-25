@@ -245,7 +245,19 @@ html
                   .card-profile-text.d-flex.flex-column
                     span.card-profile-name Vine
                     span.card-profile-name-link @131613922824522136...
-              
+            .row
+              .col-12
+                h3.mar_top30 Example read form json
+              each item in profileItems
+                div.col-sm-6.col-md-4.col-lg-3.stretch-card.grid-margin
+                  a.card-link(href='' + item.link + '')
+                    .card-profile-image
+                      img(src='' + item.photo + '' alt='' + item.media + '')
+                      span.login-status.online
+                      // change to offline or busy as needed
+                    .card-profile-text.d-flex.flex-column
+                      span.card-profile-name= item.media
+                      span.card-profile-name-link= item.name
           // content-wrapper ends
         // main-panel ends
       // page-body-wrapper ends
@@ -262,7 +274,8 @@ html
           p Add new social profile for tracking
           form(action='/action_page.php')
             .form-group
-              label(for='link') URL:
+              label(for='link') 
+                b URL
               input#email.form-control(type='text' placeholder='https://twitter.com/username')
             button.btn.btn-success.float-right(type='submit') Lookup
 

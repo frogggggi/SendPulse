@@ -1,9 +1,40 @@
 {
-    "title": "Our Awesome Website",
-    "links": [
-        "Link 1",
-        "Link 2",
-        "Link 3"
-    ],
-    "message": "Hello World!"
+    "profileItems": [
+        {
+            "name": "@abhisek.daas",
+            "link": "#",
+            "photo": "img/userpic1.png",
+            "media": "Facebook"
+        },
+        {
+            "name": "@wholetthedasout",
+            "link": "#",
+            "photo": "img/userpic2.png",
+            "media": "Twitter"
+        },
+        {
+            "name": "@wholetthedasout",
+            "link": "#",
+            "photo": "img/userpic3.png",
+            "media": "Instagram"
+        },
+        {
+            "name": "@abhisekd3",
+            "link": "#",
+            "photo": "img/userpic4.png",
+            "media": "LinkedIn"
+        },
+        {
+            "name": "@abhisekd3",
+            "link": "#",
+            "photo": "img/userpic5.png",
+            "media": "Snapchat"
+        },
+        {
+            "name": "@abhisekd3",
+            "link": "#",
+            "photo": "img/userpic1.png",
+            "media": "Google+"
+        }
+    ]
 }

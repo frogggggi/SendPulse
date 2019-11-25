@@ -7,7 +7,8 @@ let gulp = require('gulp'), // Подключаем Gulp
     cache = require('gulp-cache'), // Подключаем библиотеку кеширования
     spritesmith = require('gulp.spritesmith'), // Подключаем библиотеку создания спрайтов
     merge = require('merge-stream'), // Подключаем merge
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'); // автопрефиксер -webkit, -ms, -o, -moz
+    fs = require('fs'); // работа с файлами, модуль fs
 
 let browserSync = require('browser-sync').create();
 
@@ -17,6 +18,9 @@ let pathSrc = './src/';
 let pathFonts = [
     pathSrc + 'fonts/**/*'
 ];
+
+const data = JSON.parse(fs.readFileSync('src/data/data.json')) // файл
+
 
 gulp.task('sass', function () {
     return gulp.src(pathSrc + 'sass/**/*.+(sass|scss)')
@@ -31,36 +35,21 @@ gulp.task('cleanCSSBuild', () => {
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest(pathBuild + 'css/'))
 });
-/*
-gulp.task('pug', function () {
-    gulp.src('src/pug/*.+(jade|pug)')
-        .pipe(pug({pretty: '\t'}))
-        .pipe(gulp.dest('dist/'))
-});
-*/
 
-gulp.task('pug', function () {
-    gulp.src('src/pug/*.+(jade|pug)')   
+gulp.task('pug', () => {
+    gulp.src('src/pug/index.pug')
         .pipe(pug({
-            data: {
-                title: 'Our Awesome Website',
-                links: [
-                    'Link 3',
-                    'Link 2',
-                    'Link 1'
-                ],
-                message: 'Hello World!'
-            }
+            pretty: true,
+            locals: data || {}
         }))
         .pipe(pug({pretty: '\t'}))
-        .pipe(gulp.dest('dist/'))
-});
+        .pipe(gulp.dest('./dist/'));
+  });
 
 gulp.task('js', function () {
     return gulp.src(pathSrc + 'js/**/*.js')
         .pipe(gulp.dest('dist/js'));
 });
-
 
 gulp.task('svg', function () {
     return gulp.src(pathSrc + 'svg/**/*')
