@@ -16,3 +16,20 @@ $('.input-group-prepend').on('click', function() {
     $('.search-input').toggleClass('show');
     $('.search-input').focus();
 });
+$('.navbar-toggler').on('click', function() {
+    $('.sidebar').toggleClass('hide_nav');
+    $('.main-panel').toggleClass('hideed_nav');
+});
+
+if ($(window).width() < 960) {
+    $('.sidebar').addClass('hide_nav'); 
+}
+
+
+$(window).on("resize", function(event){
+    if ($(this).width() < 960) {
+        $('body').toggleClass('open_nav'); 
+        $('.sidebar').addClass('hide_nav'); 
+        
+    }
+});

@@ -7,6 +7,15 @@
   background: linear-gradient(180deg, #27B983 -18.15%, #91E857 266.75%)
   box-shadow: inset -1px 0px 0px rgba(28, 175, 94, 0.1)
   position: relative
+  @media screen and (max-width:768px)
+    width: 100%
+    position: absolute
+    z-index: 1
+
+  &.hide_nav
+    display: none
+    @media screen and (max-width:768px)
+      
   .nav 
     padding: 35px 0 0 0
     .nav-item 

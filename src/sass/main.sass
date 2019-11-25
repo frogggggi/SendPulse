@@ -7,11 +7,17 @@ $base-color: #E5E5E5
 $base-color: #fff
 $base-color: #147A42
 
+*
+    outline: none!important
 body,
 html
     overflow-x: hidden
     font-family: Roboto
     padding-right: 0 !important
+
+body.open_nav
+    position: fixed
+    overflow: hidden
 
 .container-scroller
     overflow: hidden
@@ -35,15 +41,25 @@ html
     min-height: calc(100vh - 70px)
     display: flex
     flex-direction: column
+    &.fix_panel
+        width: 100%
+    @media screen and (max-width:768px)
+        width: calc(100%)
+    &.hideed_nav
+        width: calc(100%)
 .content-wrapper
     background: #EFF7ED
     padding: 5rem 7.8125rem
     width: 100%
     flex-grow: 1
+    @media screen and (max-width:1024px)
+        padding: 5rem 3rem
+    @media screen and (max-width:991px)
+        padding: 5rem 3rem
     @media screen and (max-width:768px)
-        padding: 5rem 5rem
-    @media screen and (max-width:576px)
         padding: 5rem 2rem
+    @media screen and (max-width:576px)
+        padding: 5rem 1rem
 .page-title
     margin-bottom: 0
     color: #1CAF5E
@@ -249,3 +265,46 @@ html
     padding: 20px
 .mar_top30
     margin-top: 30px
+
+.mdi-menu
+    width: 25px
+    height: 25px
+    display: block
+    cursor: pointer
+    background: #ddd
+
+
+.d-lg-none
+    @media (min-width: 992px)
+        display: none !important
+.navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right)
+    @media (max-width: 991px)
+        display: none
+
+
+
+
+// ну или если нужно очен красивый адаптив то вот танцы с бубном:
+
+.col-md-6.stretch-card
+    @media (min-width: 768px) and (orientation:landscape)
+        // some properties
+        color:#fff
+
+
+.col-md-6.stretch-card
+    @media (min-width: 768px) and (orientation:portrait)
+        // redefined
+        flex: 0 0 33.333333%
+        max-width: 33.333333%
+
+.col-sm-6.stretch-card
+    @media (min-width: 576px) and (orientation:landscape)
+        flex: 0 0 33.333333%
+        max-width: 33.333333%
+
+
+.page-body-wrapper .sidebar:not(.hide_nav) ~ .main-panel
+    width: calc(100% - 240px)
+.page-body-wrapper .sidebar:has(.hide_nav) ~ .main-panel
+    width: calc(100%)
