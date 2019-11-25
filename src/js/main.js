@@ -21,15 +21,16 @@ $('.navbar-toggler').on('click', function() {
     $('.main-panel').toggleClass('hideed_nav');
 });
 
-if ($(window).width() < 960) {
+if ($(window).width() < 992) {
     $('.sidebar').addClass('hide_nav'); 
+    $('.main-panel').addClass('hideed_nav');
 }
 
 
 $(window).on("resize", function(event){
-    if ($(this).width() < 960) {
+    if ($(this).width() < 992) {
         $('body').toggleClass('open_nav'); 
         $('.sidebar').addClass('hide_nav'); 
-        
+        $('.main-panel').addClass('hideed_nav');
     }
 });
